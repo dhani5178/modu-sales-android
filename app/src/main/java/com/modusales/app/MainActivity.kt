@@ -20,10 +20,11 @@ class MainActivity : ComponentActivity() {
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
-        // Force dark status-bar icons so the bar stays visible on the light backdrop
-        // regardless of the device's light/dark mode.
+        // Force dark status/navigation-bar icons so both bars stay visible on the
+        // light backdrop regardless of the device's light/dark mode.
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.light(Color.TRANSPARENT, Color.TRANSPARENT),
         )
         super.onCreate(savedInstanceState)
 
@@ -32,6 +33,9 @@ class MainActivity : ComponentActivity() {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT,
             )
+            // Solid white backdrop so the padded status/navigation-bar regions render
+            // as visible bars (dark icons on white) instead of blank/overlapping areas.
+            setBackgroundColor(Color.WHITE)
             with(settings) {
                 javaScriptEnabled = true
                 domStorageEnabled = true
