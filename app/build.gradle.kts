@@ -11,8 +11,8 @@ android {
         applicationId = "com.modusales.app"
         minSdk = 35
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "1.3"
     }
 
     buildTypes {
@@ -38,4 +38,5 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.15.0")
     implementation("androidx.activity:activity-ktx:1.9.3")
+    implementation("androidx.browser:browser:1.8.0")
 }
